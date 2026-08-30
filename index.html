@@ -4,9 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Action Labs | Take Democracy Offline</title>
+  <title>Action Labs | Political Salon + Action Lab</title>
 
   <style>
+    :root {
+      --navy: #071f35;
+      --teal: #0c8f8c;
+      --coral: #f0644f;
+      --gold: #f7bc2f;
+      --lavender: #bba0e8;
+      --ink: #14212d;
+      --muted: #5f6a72;
+      --line: #dfe3e5;
+      --white: #ffffff;
+      --soft: #f7faf9;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -18,281 +31,646 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: #18243a;
-      background: #fffdf8;
-      line-height: 1.6;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.5;
     }
 
     a {
       color: inherit;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
     /* HEADER */
 
     header {
-      background: #173f73;
-      color: white;
-      padding: 18px 7%;
+      background: white;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 30px;
     }
 
     .logo {
-      font-size: 1.45rem;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.65rem;
+      line-height: .9;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--coral);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
       font-weight: 800;
-      letter-spacing: -0.5px;
+      font-size: .9rem;
+      text-transform: uppercase;
     }
 
     nav a {
       text-decoration: none;
-      margin-left: 28px;
-      font-weight: 600;
-      font-size: 0.95rem;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: var(--teal);
+    }
+
+    .nav-button {
+      background: var(--gold);
+      padding: 12px 19px;
+      border-radius: 999px;
     }
 
     /* HERO */
 
     .hero {
-      background: #173f73;
-      color: white;
-      padding: 90px 7% 105px;
+      padding: 52px 0 38px;
+      overflow: hidden;
     }
 
-    .hero-inner {
-      max-width: 940px;
-      margin: 0 auto;
-      text-align: center;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.25fr;
+      gap: 55px;
+      align-items: center;
     }
 
-    .eyebrow {
+    .kicker {
+      color: var(--coral);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: 1.7px;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #ffd166;
-      margin-bottom: 15px;
+      margin-bottom: 13px;
     }
 
     h1 {
-      font-size: clamp(3.7rem, 9vw, 7rem);
-      line-height: 0.95;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.4rem, 6vw, 5.7rem);
+      line-height: .95;
       margin: 0 0 24px;
-      letter-spacing: -4px;
+      letter-spacing: -3px;
+      color: var(--navy);
     }
 
-    .tagline {
-      font-size: clamp(1.45rem, 3vw, 2.2rem);
-      font-weight: 700;
-      margin: 0 auto 30px;
-      max-width: 800px;
-      line-height: 1.25;
+    h1 .impact {
+      color: var(--coral);
+      position: relative;
+      display: inline-block;
+    }
+
+    h1 .impact:after {
+      content: "";
+      position: absolute;
+      left: 8%;
+      bottom: -8px;
+      width: 80%;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      transform: rotate(-2deg);
     }
 
     .hero-copy {
+      font-size: 1.12rem;
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+
+    .hero-detail {
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 40px 4px 40px 4px;
+      filter: saturate(.9);
+    }
+
+    .image-note {
+      position: absolute;
+      right: -15px;
+      bottom: 24px;
+      background: var(--lavender);
+      color: var(--navy);
+      width: 130px;
+      height: 130px;
+      border-radius: 48% 52% 42% 58%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 900;
+      transform: rotate(7deg);
+      padding: 20px;
+      font-size: .95rem;
+    }
+
+    .hero-strip {
+      margin-top: 40px;
+      background: var(--navy);
+      color: white;
+      display: inline-block;
+      padding: 11px 20px;
+      font-family: Georgia, serif;
+      font-style: italic;
       font-size: 1.15rem;
-      max-width: 760px;
-      margin: 0 auto 20px;
-      color: #e8eef7;
+      transform: rotate(-1deg);
     }
 
-    .hero-promise {
-      max-width: 760px;
-      margin: 25px auto;
-      font-size: 1.15rem;
+    /* LEARN / DISCUSS / ACT */
+
+    .pillars {
+      padding: 35px 0 65px;
     }
 
-    .hero-promise strong {
-      color: #ffd166;
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .buttons {
-      margin-top: 38px;
+    .pillar {
+      padding: 32px;
+      position: relative;
+    }
+
+    .pillar + .pillar {
+      border-left: 1px solid var(--line);
+    }
+
+    .pillar-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.7rem;
+      margin-bottom: 13px;
+    }
+
+    .learn .pillar-icon {
+      background: var(--lavender);
+    }
+
+    .discuss .pillar-icon {
+      background: #8ed9d5;
+    }
+
+    .act .pillar-icon {
+      background: #ffd5ca;
+    }
+
+    .pillar h3 {
+      margin: 0 0 6px;
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: .5px;
+    }
+
+    .pillar p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--navy);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      letter-spacing: -1.5px;
+      line-height: 1;
+      margin: 0 0 12px;
+    }
+
+    .section-heading p {
+      max-width: 690px;
+      color: var(--muted);
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    /* UPCOMING */
+
+    .upcoming {
+      background: var(--soft);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .event-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(15, 35, 50, .06);
+    }
+
+    .event-art {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+    }
+
+    .event-art.accreditation {
+      background:
+        radial-gradient(circle at 75% 40%, rgba(247,188,47,.8), transparent 17%),
+        linear-gradient(135deg, #08345b, #0c8f8c);
+    }
+
+    .event-art.ai {
+      background:
+        radial-gradient(circle at 65% 35%, rgba(187,160,232,.95), transparent 20%),
+        linear-gradient(135deg, #101e46, #6e48bb);
+    }
+
+    .event-art-word {
+      color: rgba(255,255,255,.95);
+      font-family: Georgia, serif;
+      font-weight: bold;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: .9;
+      letter-spacing: -2px;
+      max-width: 85%;
+    }
+
+    .date-tab {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 9px 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: .8rem;
+      transform: rotate(-2deg);
+    }
+
+    .ai .date-tab {
+      background: var(--teal);
+      color: white;
+    }
+
+    .event-content {
+      padding: 27px;
+    }
+
+    .event-time {
+      color: var(--coral);
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: .82rem;
+      letter-spacing: .6px;
+    }
+
+    .event-card h3 {
+      font-family: Georgia, serif;
+      color: var(--navy);
+      font-size: 1.55rem;
+      line-height: 1.15;
+      margin: 10px 0;
+    }
+
+    .event-card p {
+      color: var(--muted);
     }
 
     .button {
       display: inline-block;
-      padding: 14px 24px;
-      margin: 6px;
-      border-radius: 5px;
-      background: #ffd166;
-      color: #17243a;
       text-decoration: none;
-      font-weight: 800;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: .85rem;
+      padding: 12px 17px;
+      margin-top: 8px;
+      background: var(--coral);
+      color: white;
+      border-radius: 3px;
     }
 
     .button:hover {
       transform: translateY(-2px);
     }
 
-    .button-outline {
-      background: transparent;
-      color: white;
-      border: 2px solid white;
-      padding: 12px 22px;
+    .button.teal {
+      background: var(--teal);
     }
 
-    /* GENERAL */
+    /* CALENDAR */
 
-    section {
-      padding: 80px 7%;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      font-size: clamp(2.1rem, 4vw, 3.2rem);
-      line-height: 1.1;
-      margin: 0 0 20px;
-      letter-spacing: -1.5px;
-    }
-
-    .section-intro {
-      max-width: 700px;
-      font-size: 1.1rem;
-      color: #4a5668;
-      margin-bottom: 45px;
-    }
-
-    /* LEARN DISCUSS ACT */
-
-    .how {
+    .calendar-section {
       background: white;
     }
 
-    .three-columns {
+    .calendar-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 45px;
-      margin-top: 45px;
-    }
-
-    .number {
-      color: #d44a3a;
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .three-columns h3 {
-      font-size: 1.65rem;
-      margin: 6px 0 10px;
-    }
-
-    /* EVENTS */
-
-    .events {
-      background: #f1eee6;
-    }
-
-    .event-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 25px;
     }
 
-    .event {
-      background: white;
-      padding: 35px;
+    .calendar-card {
+      border: 1px solid var(--line);
       border-radius: 8px;
-      border-top: 6px solid #d44a3a;
+      padding: 25px;
+    }
+
+    .month-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 17px;
+      border-bottom: 4px solid var(--navy);
+      margin-bottom: 15px;
+    }
+
+    .month-title strong {
+      font-size: 1.2rem;
+      color: var(--navy);
+    }
+
+    .calendar-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      text-align: center;
+    }
+
+    .calendar-table th {
+      font-size: .68rem;
+      color: var(--muted);
+      padding: 6px 0 10px;
+      text-transform: uppercase;
+    }
+
+    .calendar-table td {
+      height: 46px;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .blank {
+      color: #c7cccf;
+    }
+
+    .event-day span {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: var(--coral);
+      color: white;
+    }
+
+    .event-day.ai-day span {
+      background: var(--teal);
+    }
+
+    .calendar-event {
+      border-top: 1px solid var(--line);
+      margin-top: 15px;
+      padding-top: 15px;
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 12px;
+      font-size: .9rem;
+    }
+
+    .calendar-date {
+      color: var(--coral);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .calendar-date.teal-text {
+      color: var(--teal);
+    }
+
+    /* PREVIOUS LABS */
+
+    .previous {
+      background: var(--soft);
+    }
+
+    .past-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .past-card {
+      background: white;
+      border: 1px solid var(--line);
+      min-height: 290px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 20px rgba(15, 35, 50, .04);
     }
 
-    .event-label {
+    .past-card:nth-child(1) {
+      border-top: 7px solid var(--lavender);
+    }
+
+    .past-card:nth-child(2) {
+      border-top: 7px solid var(--teal);
+    }
+
+    .past-card:nth-child(3) {
+      border-top: 7px solid var(--gold);
+    }
+
+    .past-card:nth-child(4) {
+      border-top: 7px solid var(--coral);
+    }
+
+    .past-card .past-label {
       text-transform: uppercase;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      color: #d44a3a;
+      font-size: .72rem;
+      font-weight: 900;
+      color: var(--muted);
+      letter-spacing: .8px;
     }
 
-    .event h3 {
-      font-size: 1.6rem;
-      line-height: 1.25;
-      margin: 12px 0 15px;
+    .past-card h3 {
+      font-family: Georgia, serif;
+      font-size: 1.4rem;
+      line-height: 1.15;
+      margin: 15px 0;
+      color: var(--navy);
     }
 
-    .event p {
-      color: #566173;
-      flex-grow: 1;
+    .past-description {
+      color: var(--muted);
+      font-size: .93rem;
     }
 
-    .event .button {
-      margin: 18px 0 0;
-      align-self: flex-start;
-      background: #173f73;
-      color: white;
+    .past-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--teal);
+      font-size: .82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .past-link:hover {
+      text-decoration: underline;
     }
 
     /* HOST */
 
     .host {
-      background: #ffd166;
-      text-align: center;
+      background: var(--gold);
+      padding: 60px 0;
     }
 
-    .host .container {
-      max-width: 760px;
+    .host-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .host h2 {
+      font-size: clamp(2.6rem, 5vw, 4.3rem);
     }
 
     .host p {
-      font-size: 1.15rem;
+      font-size: 1.08rem;
+      max-width: 620px;
     }
 
     .host .button {
-      background: #173f73;
-      color: white;
-      margin-top: 20px;
+      background: var(--navy);
+    }
+
+    .host-note {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      font-style: italic;
+      color: var(--navy);
+      transform: rotate(-2deg);
     }
 
     /* FOOTER */
 
     footer {
-      background: #122f56;
+      background: var(--navy);
       color: white;
-      padding: 35px 7%;
-      text-align: center;
+      padding: 45px 0;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: center;
+    }
+
+    footer .logo {
+      color: white;
     }
 
     footer a {
-      color: #ffd166;
+      color: var(--gold);
     }
 
     /* MOBILE */
 
-    @media (max-width: 750px) {
-      header {
-        padding: 16px 5%;
+    @media (max-width: 950px) {
+      .past-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
+    }
 
-      nav {
+    @media (max-width: 850px) {
+      nav a:not(.nav-button) {
         display: none;
       }
 
-      .hero {
-        padding: 70px 6% 80px;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-
-      section {
-        padding: 60px 6%;
-      }
-
-      .three-columns,
-      .event-grid {
+      .hero-grid,
+      .calendar-grid,
+      .host-grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero-image img {
+        height: 380px;
+      }
+
+      .image-note {
+        right: 10px;
+      }
+
+      .pillar-grid,
+      .events-grid,
+      .past-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillar + .pillar {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-grid {
+        display: block;
+      }
+
+      footer .logo {
+        margin-bottom: 22px;
+        display: block;
       }
     }
   </style>
@@ -300,29 +678,41 @@
 
 <body>
 
-  <header>
-    <div class="logo">Action Labs!</div>
+<header>
+  <div class="container header-inner">
+
+    <a class="logo" href="#">
+      ACTION<br>LABS<span>!</span>
+    </a>
 
     <nav>
-      <a href="#about">What We Do</a>
-      <a href="#events">Upcoming Labs</a>
+      <a href="#about">About</a>
+      <a href="#upcoming">Upcoming Labs</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#previous">Previous Labs</a>
       <a href="#host">Host a Lab</a>
+      <a class="nav-button" href="#upcoming">Get Involved</a>
     </nav>
-  </header>
+
+  </div>
+</header>
 
 
-  <main>
+<main>
 
-    <section class="hero">
-      <div class="hero-inner">
+  <!-- HERO -->
 
-        <div class="eyebrow">Take democracy offline</div>
+  <section class="hero">
+    <div class="container hero-grid">
 
-        <h1>Action Labs!</h1>
+      <div>
 
-        <p class="tagline">
-          A political salon—and a hands-on antidote to doom-scrolling.
-        </p>
+        <div class="kicker">A political salon & action lab</div>
+
+        <h1>
+          Better conversations.<br>
+          <span class="impact">Bigger impact.</span>
+        </h1>
 
         <p class="hero-copy">
           Come together in person. Meet your neighbors. Learn how the
@@ -330,143 +720,558 @@
           and explore the forces shaping our democracy.
         </p>
 
-        <p class="hero-copy">
+        <p class="hero-detail">
           Part political salon, part democracy workshop, Action Labs takes
           activism offline—with real conversation, real community, and
           fresh cookies.
         </p>
 
-        <p class="hero-promise">
-          You'll walk away with a <strong>deeper understanding</strong>
-          of the issues, how our institutions really work, and
-          <strong>concrete ways you can take action</strong> to defend democracy.
-        </p>
-
-        <div class="buttons">
-          <a class="button" href="#events">Find an Action Lab</a>
-          <a class="button button-outline" href="#host">Host Your Own</a>
+        <div class="hero-strip">
+          Think together. Plan together. Power together.
         </div>
 
       </div>
-    </section>
 
+      <div class="hero-image">
 
-    <section class="how" id="about">
-      <div class="container">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Meeting_in_Camp_Foster_community_center_130131-M-CV548-014.jpg"
+          alt="People gathered around a table in conversation">
 
-        <h2>Learn. Discuss. Act.</h2>
-
-        <div class="three-columns">
-
-          <div>
-            <div class="number">01</div>
-            <h3>Learn</h3>
-            <p>
-              Get past the headlines. Understand how government, law,
-              institutions, and political power actually work.
-            </p>
-          </div>
-
-          <div>
-            <div class="number">02</div>
-            <h3>Discuss</h3>
-            <p>
-              Talk it through with real people, in person. Ask questions.
-              Challenge assumptions. Meet neighbors who care about what
-              happens next.
-            </p>
-          </div>
-
-          <div>
-            <div class="number">03</div>
-            <h3>Act</h3>
-            <p>
-              Leave with something concrete you can do—and the knowledge
-              and materials to bring others along.
-            </p>
-          </div>
-
+        <div class="image-note">
+          REAL PEOPLE.<br>
+          REAL TALK.
         </div>
+
       </div>
-    </section>
+
+    </div>
+  </section>
 
 
-    <section class="events" id="events">
-      <div class="container">
+  <!-- LEARN / DISCUSS / ACT -->
+
+  <section class="pillars" id="about">
+    <div class="container">
+
+      <div class="pillar-grid">
+
+        <div class="pillar learn">
+          <div class="pillar-icon">💡</div>
+          <h3>Learn</h3>
+          <p>
+            Get past the headlines. Understand how government, law and
+            institutions actually work.
+          </p>
+        </div>
+
+        <div class="pillar discuss">
+          <div class="pillar-icon">💬</div>
+          <h3>Discuss</h3>
+          <p>
+            Ask questions. Challenge assumptions. Have real conversations
+            with people in your community.
+          </p>
+        </div>
+
+        <div class="pillar act">
+          <div class="pillar-icon">📣</div>
+          <h3>Act</h3>
+          <p>
+            Walk away with a deeper understanding and concrete ways to
+            take meaningful action.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- UPCOMING EVENTS -->
+
+  <section class="upcoming" id="upcoming">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="kicker">Come hang out. Learn something. Do something.</div>
 
         <h2>Upcoming Action Labs</h2>
 
-        <p class="section-intro">
-          Join us for a conversation, dig into an issue, and leave knowing
-          what you can do about it.
+        <p>
+          Dig into an issue, talk it through with real people, and leave
+          knowing what you can actually do about it.
         </p>
+      </div>
 
-        <div class="event-grid">
 
-          <article class="event">
-            <div class="event-label">Upcoming Action Lab</div>
+      <div class="events-grid">
+
+        <!-- ACTION LAB: ACCREDITATION -->
+
+        <article class="event-card">
+
+          <div class="event-art accreditation">
+
+            <div class="date-tab">
+              SEP 10
+            </div>
+
+            <div class="event-art-word">
+              WHO<br>
+              CONTROLS<br>
+              COLLEGE?
+            </div>
+
+          </div>
+
+          <div class="event-content">
+
+            <div class="event-time">
+              Thursday, September 10 · 6:00–7:00 PM PDT · Virtual
+            </div>
 
             <h3>
-              Teach-in: How to Fight Back Against Trump's Secret
-              Accreditation Weapon
+              Teach-in: How to Fight Back Against Trump’s Secret Accreditation Weapon
             </h3>
 
             <p>
-              Learn why higher-education accreditation matters, what's
-              changing, and how ordinary people can take action.
+              Learn why higher-education accreditation matters, what is
+              changing, what it could mean for academic freedom and democracy,
+              and how the public can respond.
             </p>
 
             <a
               class="button"
-              href="https://actionnetwork.org/events/teach-in-how-to-fight-back-against-trumps-secret-accreditation-weapon?source=direct_link"
+              href="https://actionnetwork.org/events/teach-in-how-to-fight-back-against-trumps-secret-accreditation-weapon?source=direct_link&link_id=3&can_id=9e6638fa5e6cd0d031aeef08eb24e2de&email_referrer=email_3374445&email_subject=youre-invited-to-a-teach-in-on-trumps-secret-accreditation-weapon"
               target="_blank"
               rel="noopener noreferrer">
               Sign Up →
             </a>
-          </article>
+
+          </div>
+
+        </article>
 
 
-          <article class="event">
-            <div class="event-label">Upcoming Action Lab</div>
+        <!-- ACTION LAB: AI -->
+
+        <article class="event-card">
+
+          <div class="event-art ai">
+
+            <div class="date-tab">
+              OCT 9
+            </div>
+
+            <div class="event-art-word">
+              AI +<br>
+              DEMOCRACY
+            </div>
+
+          </div>
+
+          <div class="event-content">
+
+            <div class="event-time">
+              Friday, October 9 · 4:30–6:30 PM PDT · Berkeley
+            </div>
 
             <h3>
               How to Use AI to Build a Better Democracy
             </h3>
 
             <p>
-              Explore practical ways ordinary people can use AI to
-              understand issues, participate more effectively, and
-              strengthen democracy.
+              Explore practical ways ordinary people can use AI to understand
+              issues, participate more effectively, organize, and strengthen
+              democracy.
             </p>
 
             <a
-              class="button"
+              class="button teal"
               href="https://www.mobilize.us/indivisible-east-bay/event/1016395/"
               target="_blank"
               rel="noopener noreferrer">
               Sign Up →
             </a>
-          </article>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CALENDAR -->
+
+  <section class="calendar-section" id="calendar">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="kicker">Put something better on your calendar</div>
+        <h2>Upcoming Calendar</h2>
+      </div>
+
+
+      <div class="calendar-grid">
+
+        <!-- SEPTEMBER 2026 -->
+
+        <div class="calendar-card">
+
+          <div class="month-title">
+            <strong>September 2026</strong>
+            <span>Action Labs!</span>
+          </div>
+
+          <table class="calendar-table">
+
+            <thead>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td class="blank"></td>
+                <td class="blank"></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+
+              <tr>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td class="event-day"><span>10</span></td>
+                <td>11</td>
+                <td>12</td>
+              </tr>
+
+              <tr>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+              </tr>
+
+              <tr>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+              </tr>
+
+              <tr>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td class="blank"></td>
+                <td class="blank"></td>
+                <td class="blank"></td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+
+          <div class="calendar-event">
+
+            <div class="calendar-date">
+              Sep 10
+            </div>
+
+            <div>
+              <strong>
+                Fight Back Against Trump’s Secret Accreditation Weapon
+              </strong>
+              <br>
+              6:00–7:00 PM PDT · Virtual
+            </div>
+
+          </div>
 
         </div>
+
+
+        <!-- OCTOBER 2026 -->
+
+        <div class="calendar-card">
+
+          <div class="month-title">
+            <strong>October 2026</strong>
+            <span>Action Labs!</span>
+          </div>
+
+          <table class="calendar-table">
+
+            <thead>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td class="blank"></td>
+                <td class="blank"></td>
+                <td class="blank"></td>
+                <td class="blank"></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+
+              <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td class="event-day ai-day"><span>9</span></td>
+                <td>10</td>
+              </tr>
+
+              <tr>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+              </tr>
+
+              <tr>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+              </tr>
+
+              <tr>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+
+          <div class="calendar-event">
+
+            <div class="calendar-date teal-text">
+              Oct 9
+            </div>
+
+            <div>
+              <strong>
+                How to Use AI to Build a Better Democracy
+              </strong>
+              <br>
+              4:30–6:30 PM PDT · Sports Basement Berkeley
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
-    </section>
+
+    </div>
+  </section>
 
 
-    <section class="host" id="host">
-      <div class="container">
+  <!-- PREVIOUS ACTION LABS -->
 
-        <h2>Host an Action Lab</h2>
+  <section class="previous" id="previous">
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div class="kicker">Where we've been</div>
+
+        <h2>Previous Action Labs</h2>
 
         <p>
-          <strong>You don't need to be an expert.</strong>
-          We'll give you the materials. You bring the people.
+          Action Labs started as an experiment: bring people together,
+          understand how power and government actually work, talk through
+          what it means, and figure out what ordinary people can do.
         </p>
 
+      </div>
+
+
+      <div class="past-grid">
+
+        <!-- ACTION LAB #1 -->
+
+        <article class="past-card">
+
+          <div>
+
+            <div class="past-label">
+              Action Lab #1
+            </div>
+
+            <h3>
+              Focus Group
+            </h3>
+
+            <p class="past-description">
+              Our first Action Lab: a focus group to test the idea,
+              explore what people wanted to understand, and help shape
+              the Action Labs format.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- ACTION LAB #2 -->
+
+        <article class="past-card">
+
+          <div>
+
+            <div class="past-label">
+              Action Lab #2 · August 24, 2025
+            </div>
+
+            <h3>
+              How the U.S. Federal Legal System Works—and Why It Matters
+            </h3>
+
+            <p class="past-description">
+              A practical introduction to the federal legal system:
+              how the courts fit together, who has power, and why the
+              structure matters for democracy and everyday life.
+            </p>
+
+          </div>
+
+          <a
+            class="past-link"
+            href="https://www.evite.com/event/0035UM76LEQTQQ6QOEPQIV4SLEYRIQ"
+            target="_blank"
+            rel="noopener noreferrer">
+            View Action Lab →
+          </a>
+
+        </article>
+
+
+        <!-- ACTION LAB #3 -->
+
+        <article class="past-card">
+
+          <div>
+
+            <div class="past-label">
+              Action Lab #3 · October 12, 2025
+            </div>
+
+            <h3>
+              How the Department of Justice Works
+            </h3>
+
+            <p class="past-description">
+              How the Department of Justice works, with a special focus
+              on the immigration courts and U.S. Immigration and Customs
+              Enforcement (ICE).
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- ACTION LAB #4 -->
+
+        <article class="past-card">
+
+          <div>
+
+            <div class="past-label">
+              Action Lab #4 · November 16, 2025
+            </div>
+
+            <h3>
+              Project 2025
+            </h3>
+
+            <p class="past-description">
+              A deep dive into Project 2025—the published conservative
+              strategy for reshaping the federal government, its
+              institutions, and the exercise of executive power.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- HOST AN ACTION LAB -->
+
+  <section class="host" id="host">
+    <div class="container host-grid">
+
+      <div>
+
+        <h2>
+          You don't need to be an expert.
+        </h2>
+
         <p>
-          Invite friends and neighbors over. Use an Action Lab kit to
-          understand an issue, lead a conversation, and help everyone
-          take meaningful action.
+          We'll give you the materials. You bring the people.
+          Invite friends and neighbors over, dig into an issue,
+          lead a conversation, and help everyone take meaningful action.
         </p>
 
         <p>
@@ -474,21 +1279,41 @@
           <strong>Cookies encouraged.</strong>
         </p>
 
-        <a class="button" href="mailto:info@action-labs.org?subject=I want to host an Action Lab">
-          I Want to Host →
+        <a
+          class="button"
+          href="mailto:info@action-labs.org?subject=I want to host an Action Lab">
+          Host an Action Lab →
         </a>
 
       </div>
-    </section>
 
-  </main>
+      <div class="host-note">
+        You just need to care.
+      </div>
+
+    </div>
+  </section>
+
+</main>
 
 
-  <footer>
-    <strong>Action Labs!</strong><br>
-    Take democracy offline.<br><br>
-    <a href="mailto:info@action-labs.org">info@action-labs.org</a>
-  </footer>
+<footer>
+  <div class="container footer-grid">
+
+    <a class="logo" href="#">
+      ACTION<br>LABS<span>!</span>
+    </a>
+
+    <div>
+      Political salon. Democracy workshop. Fresh cookies.<br>
+
+      <a href="mailto:info@action-labs.org">
+        info@action-labs.org
+      </a>
+    </div>
+
+  </div>
+</footer>
 
 </body>
 </html>

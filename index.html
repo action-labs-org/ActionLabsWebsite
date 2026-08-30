@@ -1,11 +1,494 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Action Labs | Take Democracy Offline</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #18243a;
+      background: #fffdf8;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #173f73;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 28px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: #173f73;
+      color: white;
+      padding: 90px 7% 105px;
+    }
+
+    .hero-inner {
+      max-width: 940px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffd166;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(3.7rem, 9vw, 7rem);
+      line-height: 0.95;
+      margin: 0 0 24px;
+      letter-spacing: -4px;
+    }
+
+    .tagline {
+      font-size: clamp(1.45rem, 3vw, 2.2rem);
+      font-weight: 700;
+      margin: 0 auto 30px;
+      max-width: 800px;
+      line-height: 1.25;
+    }
+
+    .hero-copy {
+      font-size: 1.15rem;
+      max-width: 760px;
+      margin: 0 auto 20px;
+      color: #e8eef7;
+    }
+
+    .hero-promise {
+      max-width: 760px;
+      margin: 25px auto;
+      font-size: 1.15rem;
+    }
+
+    .hero-promise strong {
+      color: #ffd166;
+    }
+
+    .buttons {
+      margin-top: 38px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      margin: 6px;
+      border-radius: 5px;
+      background: #ffd166;
+      color: #17243a;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 12px 22px;
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 80px 7%;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin: 0 0 20px;
+      letter-spacing: -1.5px;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      font-size: 1.1rem;
+      color: #4a5668;
+      margin-bottom: 45px;
+    }
+
+    /* LEARN DISCUSS ACT */
+
+    .how {
+      background: white;
+    }
+
+    .three-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 45px;
+      margin-top: 45px;
+    }
+
+    .number {
+      color: #d44a3a;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .three-columns h3 {
+      font-size: 1.65rem;
+      margin: 6px 0 10px;
+    }
+
+    /* EVENTS */
+
+    .events {
+      background: #f1eee6;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .event {
+      background: white;
+      padding: 35px;
+      border-radius: 8px;
+      border-top: 6px solid #d44a3a;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-label {
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #d44a3a;
+    }
+
+    .event h3 {
+      font-size: 1.6rem;
+      line-height: 1.25;
+      margin: 12px 0 15px;
+    }
+
+    .event p {
+      color: #566173;
+      flex-grow: 1;
+    }
+
+    .event .button {
+      margin: 18px 0 0;
+      align-self: flex-start;
+      background: #173f73;
+      color: white;
+    }
+
+    /* HOST */
+
+    .host {
+      background: #ffd166;
+      text-align: center;
+    }
+
+    .host .container {
+      max-width: 760px;
+    }
+
+    .host p {
+      font-size: 1.15rem;
+    }
+
+    .host .button {
+      background: #173f73;
+      color: white;
+      margin-top: 20px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #122f56;
+      color: white;
+      padding: 35px 7%;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffd166;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 750px) {
+      header {
+        padding: 16px 5%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 6% 80px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+
+      .three-columns,
+      .event-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Hello!</h1>
-  <p>My website is working.</p>
+
+  <header>
+    <div class="logo">Action Labs!</div>
+
+    <nav>
+      <a href="#about">What We Do</a>
+      <a href="#events">Upcoming Labs</a>
+      <a href="#host">Host a Lab</a>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-inner">
+
+        <div class="eyebrow">Take democracy offline</div>
+
+        <h1>Action Labs!</h1>
+
+        <p class="tagline">
+          A political salon—and a hands-on antidote to doom-scrolling.
+        </p>
+
+        <p class="hero-copy">
+          Come together in person. Meet your neighbors. Learn how the
+          U.S. government <em>actually</em> works, unpack key points of law,
+          and explore the forces shaping our democracy.
+        </p>
+
+        <p class="hero-copy">
+          Part political salon, part democracy workshop, Action Labs takes
+          activism offline—with real conversation, real community, and
+          fresh cookies.
+        </p>
+
+        <p class="hero-promise">
+          You'll walk away with a <strong>deeper understanding</strong>
+          of the issues, how our institutions really work, and
+          <strong>concrete ways you can take action</strong> to defend democracy.
+        </p>
+
+        <div class="buttons">
+          <a class="button" href="#events">Find an Action Lab</a>
+          <a class="button button-outline" href="#host">Host Your Own</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="how" id="about">
+      <div class="container">
+
+        <h2>Learn. Discuss. Act.</h2>
+
+        <div class="three-columns">
+
+          <div>
+            <div class="number">01</div>
+            <h3>Learn</h3>
+            <p>
+              Get past the headlines. Understand how government, law,
+              institutions, and political power actually work.
+            </p>
+          </div>
+
+          <div>
+            <div class="number">02</div>
+            <h3>Discuss</h3>
+            <p>
+              Talk it through with real people, in person. Ask questions.
+              Challenge assumptions. Meet neighbors who care about what
+              happens next.
+            </p>
+          </div>
+
+          <div>
+            <div class="number">03</div>
+            <h3>Act</h3>
+            <p>
+              Leave with something concrete you can do—and the knowledge
+              and materials to bring others along.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="events" id="events">
+      <div class="container">
+
+        <h2>Upcoming Action Labs</h2>
+
+        <p class="section-intro">
+          Join us for a conversation, dig into an issue, and leave knowing
+          what you can do about it.
+        </p>
+
+        <div class="event-grid">
+
+          <article class="event">
+            <div class="event-label">Upcoming Action Lab</div>
+
+            <h3>
+              Teach-in: How to Fight Back Against Trump's Secret
+              Accreditation Weapon
+            </h3>
+
+            <p>
+              Learn why higher-education accreditation matters, what's
+              changing, and how ordinary people can take action.
+            </p>
+
+            <a
+              class="button"
+              href="https://actionnetwork.org/events/teach-in-how-to-fight-back-against-trumps-secret-accreditation-weapon?source=direct_link"
+              target="_blank"
+              rel="noopener noreferrer">
+              Sign Up →
+            </a>
+          </article>
+
+
+          <article class="event">
+            <div class="event-label">Upcoming Action Lab</div>
+
+            <h3>
+              How to Use AI to Build a Better Democracy
+            </h3>
+
+            <p>
+              Explore practical ways ordinary people can use AI to
+              understand issues, participate more effectively, and
+              strengthen democracy.
+            </p>
+
+            <a
+              class="button"
+              href="https://www.mobilize.us/indivisible-east-bay/event/1016395/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Sign Up →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="host" id="host">
+      <div class="container">
+
+        <h2>Host an Action Lab</h2>
+
+        <p>
+          <strong>You don't need to be an expert.</strong>
+          We'll give you the materials. You bring the people.
+        </p>
+
+        <p>
+          Invite friends and neighbors over. Use an Action Lab kit to
+          understand an issue, lead a conversation, and help everyone
+          take meaningful action.
+        </p>
+
+        <p>
+          Living room. Community room. Backyard. Coffee shop.
+          <strong>Cookies encouraged.</strong>
+        </p>
+
+        <a class="button" href="mailto:info@action-labs.org?subject=I want to host an Action Lab">
+          I Want to Host →
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <strong>Action Labs!</strong><br>
+    Take democracy offline.<br><br>
+    <a href="mailto:info@action-labs.org">info@action-labs.org</a>
+  </footer>
+
 </body>
 </html>

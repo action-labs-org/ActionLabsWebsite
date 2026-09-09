@@ -169,6 +169,16 @@
       border: 1px solid var(--border);
       overflow: hidden;
     }
+    .lab-card-link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lab-card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(11, 34, 57, 0.12);
+}
 
     .lab-number {
       padding: 34px 28px;
@@ -487,7 +497,7 @@
 
       <!-- ACTION LAB 2 -->
 
-      <article class="lab-card">
+      <a class="lab-card lab-card-link" href="federal-legal-system.html">
 
         <div class="lab-number">
           <strong>Action Lab #2</strong>
@@ -508,7 +518,7 @@
 
         </div>
 
-      </article>
+     </a>
 
 
       <!-- ACTION LAB 3 -->

@@ -680,6 +680,54 @@
         display: block;
       }
     }
+    /* MOBILE HAMBURGER MENU */
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--navy);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 760px) {
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-bottom: 1px solid var(--line);
+    padding: 8px 24px 18px;
+  }
+
+  .mobile-menu a {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+}
   </style>
 </head>
 
@@ -692,18 +740,32 @@
   <img src="action-labs-logo.png" alt="Action Labs">
 </a>
 
-    <nav>
-      <a href="about.html">About</a>
-      <a href="#upcoming">Upcoming Labs</a>
-      <a href="#calendar">Calendar</a>
-      <a href="#previous">Previous Labs</a>
-      <a href="#host">Host a Lab</a>
-      <a class="nav-button" href="#upcoming">Get Involved</a>
-    </nav>
+   <nav class="desktop-nav">
+  <a href="about.html">About</a>
+  <a href="#upcoming">Upcoming Labs</a>
+  <a href="#calendar">Calendar</a>
+  <a href="#previous">Previous Labs</a>
+  <a href="#host">Host a Lab</a>
+  <a class="nav-button" href="#upcoming">Get Involved</a>
+</nav>
+
+<button class="menu-toggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+        onclick="toggleMenu()">
+  ☰
+</button>
 
   </div>
 </header>
-
+<div class="mobile-menu" id="mobileMenu">
+  <a href="about.html">About</a>
+  <a href="#upcoming">Upcoming Labs</a>
+  <a href="#calendar">Calendar</a>
+  <a href="#previous">Previous Labs</a>
+  <a href="#host">Host a Lab</a>
+  <a href="#upcoming">Get Involved</a>
+</div>
 
 <main>
 
@@ -1310,6 +1372,17 @@
 
   </div>
 </footer>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const button = document.querySelector('.menu-toggle');
 
+    menu.classList.toggle('open');
+
+    const isOpen = menu.classList.contains('open');
+    button.setAttribute('aria-expanded', isOpen);
+    button.textContent = isOpen ? '✕' : '☰';
+  }
+</script>
 </body>
 </html>

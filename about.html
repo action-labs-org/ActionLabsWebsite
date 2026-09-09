@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About | Action Labs</title>
+
+  <style>
+    :root {
+      --navy: #071f35;
+      --teal: #139a99;
+      --coral: #e4572e;
+      --gold: #ffc233;
+      --purple: #b79be7;
+      --ink: #14212d;
+      --muted: #5f6a72;
+      --line: #e3e6e8;
+      --white: #ffffff;
+      --soft: #f7f8fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.55;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      width: 105px;
+      height: 62px;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-weight: 800;
+      font-size: .9rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--teal);
+    }
+
+    .nav-button {
+      background: var(--gold);
+      padding: 12px 19px;
+      border-radius: 999px;
+    }
+
+    /* INTRO */
+
+    .about-intro {
+      padding: 80px 0 70px;
+    }
+
+    .eyebrow {
+      color: var(--coral);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--navy);
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      font-size: clamp(3.2rem, 7vw, 6rem);
+      line-height: .97;
+      letter-spacing: -3px;
+      max-width: 900px;
+    }
+
+    .intro-copy {
+      font-size: 1.22rem;
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .intro-highlight {
+      display: inline;
+      background: linear-gradient(
+        transparent 55%,
+        rgba(183, 155, 231, .65) 55%
+      );
+    }
+
+    /* WHY */
+
+    .why {
+      background: var(--navy);
+      color: white;
+      padding: 75px 0;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .why h2 {
+      color: white;
+      margin: 0;
+      font-size: clamp(2.6rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .why-copy {
+      font-size: 1.08rem;
+      color: #e6edf2;
+    }
+
+    .why-copy p:first-child {
+      margin-top: 0;
+    }
+
+    /* HOW */
+
+    .how {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 15px;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .section-heading p {
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .principle {
+      padding: 35px;
+    }
+
+    .principle + .principle {
+      border-left: 1px solid var(--line);
+    }
+
+    .circle {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+      color: var(--navy);
+    }
+
+    .principle:nth-child(1) .circle {
+      background: var(--purple);
+    }
+
+    .principle:nth-child(2) .circle {
+      background: #92dcd8;
+    }
+
+    .principle:nth-child(3) .circle {
+      background: var(--gold);
+    }
+
+    .principle h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+
+    .principle p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* FOUNDERS */
+
+    .founders {
+      background: var(--soft);
+      padding: 85px 0;
+    }
+
+    .founder-heading {
+      margin-bottom: 44px;
+    }
+
+    .founder-heading h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2.7rem, 5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .founder-heading p {
+      max-width: 700px;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .founder-card {
+      background: white;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .founder-card.carol {
+      border-top: 8px solid var(--coral);
+    }
+
+    .founder-card.taebin {
+      border-top: 8px solid var(--purple);
+    }
+
+    .founder-photo {
+      width: 100%;
+      height: 410px;
+      object-fit: cover;
+    }
+
+    .carol .founder-photo {
+      object-position: center 24%;
+    }
+
+    .taebin .founder-photo {
+      object-position: center 32%;
+    }
+
+    .founder-copy {
+      padding: 30px;
+    }
+
+    .founder-copy h3 {
+      font-size: 2rem;
+      margin: 0 0 3px;
+    }
+
+    .role {
+      color: var(--coral);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 17px;
+    }
+
+    .founder-copy p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .linkedin {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--teal);
+      font-weight: 900;
+      font-size: .82rem;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .linkedin:hover {
+      text-decoration: underline;
+    }
+
+    /* CTA */
+
+    .cta {
+      background: var(--gold);
+      padding: 70px 0;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .cta h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1;
+      max-width: 700px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin-bottom: 0;
+    }
+
+    .cta-button {
+      flex-shrink: 0;
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      padding: 15px 22px;
+      font-size: .85rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 38px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    footer p {
+      margin: 0;
+      color: #dce5eb;
+      font-size: .9rem;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      nav a:not(.nav-button) {
+        display: none;
+      }
+
+      .why-grid,
+      .founder-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .principle + .principle {
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .founder-photo {
+        height: auto;
+      }
+
+      .cta-inner,
+      .footer-inner {
+        display: block;
+      }
+
+      .cta-button {
+        margin-top: 25px;
+      }
+
+      footer p + p {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<header>
+  <div class="container header-inner">
+
+    <a class="logo" href="index.html">
+      <img src="action-labs-logo.png" alt="Action Labs">
+    </a>
+
+    <nav>
+      <a href="about.html">About</a>
+      <a href="index.html#upcoming">Upcoming Labs</a>
+      <a href="index.html#calendar">Calendar</a>
+      <a href="index.html#previous">Previous Labs</a>
+      <a href="index.html#host">Host a Lab</a>
+      <a class="nav-button" href="index.html#upcoming">Get Involved</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="about-intro">
+
+    <div class="container">
+
+      <div class="eyebrow">
+        About Action Labs
+      </div>
+
+      <h1>
+        A political salon and a hands-on antidote to
+        <span class="intro-highlight">doom-scrolling.</span>
+      </h1>
+
+      <p class="intro-copy">
+        Action Labs brings people together in person to understand how
+        government, law, institutions, technology and political power actually
+        work — and then figure out what ordinary people can do about it.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="why">
+
+    <div class="container why-grid">
+
+      <div>
+        <div class="eyebrow">Why we exist</div>
+
+        <h2>
+          Understanding is the beginning. Action is the point.
+        </h2>
+      </div>
+
+      <div class="why-copy">
+
+        <p>
+          We live in a world of nonstop political news, outrage, commentary
+          and algorithms competing for our attention. But knowing that
+          something happened is not the same as understanding why it happened,
+          who has power over it, or what can be done next.
+        </p>
+
+        <p>
+          Action Labs creates a place to slow down, learn together, ask
+          questions, challenge assumptions and turn complicated civic and
+          political issues into something people can actually understand.
+        </p>
+
+        <p>
+          Then we move beyond understanding. Every Action Lab is designed to
+          help people identify meaningful ways to participate, organize and
+          take action together.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="how">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          How Action Labs works
+        </div>
+
+        <h2>
+          Learn. Discuss. Act.
+        </h2>
+
+        <p>
+          Each Action Lab combines learning, conversation and practical action
+          in an informal setting designed for real people rather than experts.
+        </p>
+
+      </div>
+
+      <div class="principles">
+
+        <div class="principle">
+
+          <div class="circle">1</div>
+
+          <h3>Learn</h3>
+
+          <p>
+            Get past the headlines. Understand how government, law,
+            institutions and political power actually work.
+          </p>
+
+        </div>
+
+        <div class="principle">
+
+          <div class="circle">2</div>
+
+          <h3>Discuss</h3>
+
+          <p>
+            Talk it through with real people, in person. Ask questions,
+            challenge assumptions and hear different perspectives.
+          </p>
+
+        </div>
+
+        <div class="principle">
+
+          <div class="circle">3</div>
+
+          <h3>Act</h3>
+
+          <p>
+            Leave with something concrete you can do — and the knowledge and
+            materials to help bring other people along.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="founders">
+
+    <div class="container">
+
+      <div class="founder-heading">
+
+        <div class="eyebrow">
+          Our Founders
+        </div>
+
+        <h2>
+          People behind the work.
+        </h2>
+
+        <p>
+          Action Labs grew out of a shared belief that informed, connected
+          people can make a real difference.
+        </p>
+
+      </div>
+
+
+      <div class="founder-grid">
+
+        <!-- CAROL -->
+
+        <article class="founder-card carol">
+
+          <img
+            class="founder-photo"
+            src="carol-dunn.png"
+            alt="Carol Dunn">
+
+          <div class="founder-copy">
+
+            <h3>Carol Dunn</h3>
+
+            <div class="role">
+              Co-Founder
+            </div>
+
+            <p>
+              Carol has worked at the intersection of technology, open
+              knowledge, inclusive product development, and public-interest
+              work. She created Action Labs to turn complicated civic and
+              political issues into something people can understand, discuss
+              together, and act on.
+            </p>
+
+            <a
+              class="linkedin"
+              href="https://www.linkedin.com/in/caroljdunn/"
+              target="_blank"
+              rel="noopener">
+              Carol on LinkedIn →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- TAEBIN -->
+
+        <article class="founder-card taebin">
+
+          <img
+            class="founder-photo"
+            src="taebin-rivers.jpg"
+            alt="Taebin Rivers">
+
+          <div class="founder-copy">
+
+            <h3>Taebin Rivers</h3>
+
+            <div class="role">
+              Co-Founder
+            </div>
+
+            <p>
+              Taebin is an avid student of history and politics with a deep
+              interest in how societies change and how people respond to new
+              ideas and technologies. He has studied Chinese and is especially
+              interested in artificial intelligence — both how it works and how
+              it is reshaping human behavior, institutions, and everyday life.
+              His interests sit at the intersection of technology, psychology,
+              language, history, and politics, and he is drawn to questions
+              about how people think, make decisions, and understand the world
+              around them.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="cta">
+
+    <div class="container cta-inner">
+
+      <div>
+
+        <h2>
+          Let's make democracy more active, together.
+        </h2>
+
+        <p>
+          Come to an Action Lab, bring a friend, or use our materials to host
+          one of your own.
+        </p>
+
+      </div>
+
+      <a class="cta-button" href="index.html#upcoming">
+        Get Involved
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <p>
+      © 2026 Action Labs
+    </p>
+
+    <p>
+      Questions?
+      <a href="mailto:info@action-labs.org">
+        info@action-labs.org
+      </a>
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>

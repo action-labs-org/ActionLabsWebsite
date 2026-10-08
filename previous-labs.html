@@ -164,12 +164,13 @@
 }
 
     .lab-card {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      background: var(--soft);
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  width: 100%;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
     .lab-card-link {
   text-decoration: none;
   color: inherit;
@@ -182,10 +183,12 @@
 }
 
     .lab-number {
-      padding: 34px 28px;
-      background: var(--navy);
-      color: white;
-    }
+  padding: 34px 28px;
+  background: var(--navy);
+  color: white;
+  width: 200px;
+  min-width: 0;
+}
 
     .lab-number strong {
       display: block;
